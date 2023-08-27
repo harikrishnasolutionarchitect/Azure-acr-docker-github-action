@@ -38,3 +38,15 @@ jobs:
         tags: lmspython.azurecr.io/lmspython:v0.1.0
        # tags: ${{ secrets.DOCKERHUB_USERNAME }}/123456789_dkr_ecr_us_east_1_amazonaws_com_nginx:1.25.3-alpine-slim
         file: ./Dockerfile  
+    - name: 'Deploy to Azure Container Instances'
+      uses: 'azure/aci-deploy@v1'
+      with:
+        resource-group: lmsrg
+        dns-name-label: lmspythonwebsite
+        image: lmspython.azurecr.io/lmspython:1.25.4-alpine-slim
+        cpu: 1
+        memory: 1
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+        name: lmspythonwebsite
+        location: 'eastus'
