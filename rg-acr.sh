@@ -14,3 +14,4 @@ az acr create --resource-group $ACR_RESOURCE_GROUP_NAME --name $ACR_NAME --sku B
 #REGISTRY_LOGIN_SERVER = Login server
 #REGISTRY_USERNAME = Username
 #REGISTRY_PASSWORD = Password
+#done
